@@ -1,8 +1,9 @@
+
+
 import 'package:dio/dio.dart';
 
-import '../../domain/datasources/pokemon_datasource.dart';
-import '../../domain/entities/pokemon.dart';
-import '../models/pokemon_list_response.dart';
+import '../../domain/domain.dart';
+import '../infrastructure.dart';
 
 class PokemonDatasourceImpl implements PokemonDataSource {
   final dio = Dio(
@@ -17,8 +18,16 @@ class PokemonDatasourceImpl implements PokemonDataSource {
       'pokemon',
       queryParameters: {'limit': limit, 'offset': offset},
     );
-    final pokemonResponse = PokemonListResponse.fromJson(response.data);
-    return [];
+    final pokemonsResponse = [];
+
+    for (var i in response.data['results']) {
+      final pokemon = await dio.get(i['url']);
+      final pokemonResponse = PokemonResult.fromJson(pokemon.data);
+      pokemonsResponse.add(pokemonResponse);
+    }
+    final pokemones = pokemonsResponse.map((e) => PokemonMapper.toEntity(e)).toList();
+
+    return pokemones;
   }
 
   @override
