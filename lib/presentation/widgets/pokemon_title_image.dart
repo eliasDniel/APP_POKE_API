@@ -1,14 +1,7 @@
-
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_poke_api/domain/entities/pokemon.dart';
 
 import '../../config/config.dart';
-
-
 
 class ProductTitleWithImage extends StatelessWidget {
   const ProductTitleWithImage({super.key, required this.pokemon});
@@ -26,11 +19,11 @@ class ProductTitleWithImage extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
           Text(
-            pokemon.name,
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+            pokemon.name.toUpperCase(),
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: kDefaultPaddin),
           Row(
@@ -41,11 +34,11 @@ class ProductTitleWithImage extends StatelessWidget {
                     const TextSpan(text: "Altura\n"),
                     TextSpan(
                       text: "${pokemon.height} m",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
+                      style: Theme.of(context).textTheme.headlineSmall!
                           .copyWith(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                   ],
                 ),
@@ -55,13 +48,13 @@ class ProductTitleWithImage extends StatelessWidget {
                 child: Hero(
                   tag: "${pokemon.id}",
                   child: Image.network(
-                    pokemon.sprites.frontDefault,
+                    pokemon.sprites.frontShiny,
                     fit: BoxFit.fill,
                   ),
                 ),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

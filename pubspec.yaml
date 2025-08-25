@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.6.1
   flutter_svg: ^2.2.0
+  go_router: ^16.2.0
+  salomon_bottom_bar: ^3.3.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0
