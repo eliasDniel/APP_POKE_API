@@ -12,10 +12,10 @@ class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  HomeScreenState createState() => HomeScreenState();
+  HomeViewState createState() => HomeViewState();
 }
 
-class HomeScreenState extends ConsumerState<HomeView> with AutomaticKeepAliveClientMixin {
+class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     ref.read(pokemonProvider.notifier).fetchPokemonsMethod();
