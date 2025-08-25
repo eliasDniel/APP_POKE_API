@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_poke_api/presentation/providers/pokemon_provider_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
@@ -7,10 +6,10 @@ class HomeScreens extends ConsumerStatefulWidget  {
   const HomeScreens({super.key});
 
   @override
-  _HomeScreensState createState() => _HomeScreensState();
+  HomeScreensState createState() => HomeScreensState();
 }
 
-class _HomeScreensState extends ConsumerState<HomeScreens> {
+class HomeScreensState extends ConsumerState<HomeScreens> {
   @override
   Widget build(BuildContext context) {
     return Container();
