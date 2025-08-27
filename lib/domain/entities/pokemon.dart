@@ -187,8 +187,4 @@ class OfficialArtwork {
   final String frontShiny;
 
   OfficialArtwork({required this.frontDefault, required this.frontShiny});
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
- 
+
 class RegionView extends StatelessWidget {
   // final Pokemon pokemon;
   const RegionView({super.key});
@@ -24,9 +24,9 @@ class RegionView extends StatelessWidget {
               generation: '1ª GERAÇÃO',
               backgroundImage: 'assets/images/kanto_bg.jpg',
               pokemonIcons: [
-                'assets/images/bulbasaur.png',
-                'assets/images/charmander.png',
-                'assets/images/squirtle.png',
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png',
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png',
               ],
               onTap: () {
                 // Navigate to Kanto region
@@ -38,9 +38,9 @@ class RegionView extends StatelessWidget {
               generation: '2ª GERAÇÃO',
               backgroundImage: 'assets/images/johto_bg.jpg',
               pokemonIcons: [
-                'assets/images/chikorita.png',
-                'assets/images/cyndaquil.png',
-                'assets/images/totodile.png',
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
+                'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png',
               ],
               onTap: () {
                 // Navigate to Johto region
