@@ -44,6 +44,11 @@ class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClien
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Image.asset(
+                      'assets/icons/icons_pokem.png',
+                      height: 40,
+                      
+                    ),
                     Text(
                       "POKEMONS",
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(

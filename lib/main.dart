@@ -3,8 +3,6 @@ import 'package:flutter_poke_api/config/router/app_router.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'presentation/providers/providers.dart';
-import 'presentation/screens/home_view.dart';
 
 void main() {
   runApp(ProviderScope(child: const MainApp()));
