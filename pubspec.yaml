@@ -10,6 +10,7 @@ dependencies:
   dio: ^5.9.0
   flutter:
     sdk: flutter
+<<<<<<< HEAD
   flutter_riverpod: ^2.4.0
   flutter_svg: ^2.2.0
   go_router: ^16.2.0
@@ -17,6 +18,13 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^6.0.0
+=======
+  flutter_riverpod: 2.6.1
+  flutter_svg: ^2.2.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   flutter_test:
     sdk: flutter
 
@@ -24,5 +32,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/loaders/
+<<<<<<< HEAD
     - assets/icons/
     - assets/images/
+=======
+  
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939

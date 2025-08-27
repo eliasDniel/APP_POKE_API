@@ -85,7 +85,11 @@ packages:
       sha256: "3105dc8492f6183fb076ccf1f351ac3d60564bff92e20bfc4af9cc1651f4e7e1"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "6.0.0"
+=======
+    version: "5.0.0"
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -107,6 +111,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -120,6 +125,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "16.2.0"
+=======
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   http:
     dependency: transitive
     description:
@@ -228,10 +235,17 @@ packages:
     dependency: transitive
     description:
       name: petitparser
+<<<<<<< HEAD
       sha256: "1a97266a94f7350d30ae522c0af07890c70b8e62c71e8e3920d1db4d23c057d1"
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
+=======
+      sha256: "07c8f0b1913bcde1ff0d26e57ace2f3012ccbf2b204e070290dad3bb22797646"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.0"
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   riverpod:
     dependency: transitive
     description:
@@ -240,6 +254,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
+<<<<<<< HEAD
   salomon_bottom_bar:
     dependency: "direct main"
     description:
@@ -248,6 +263,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.2"
+=======
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   sky_engine:
     dependency: transitive
     description: flutter
@@ -308,7 +325,11 @@ packages:
       sha256: "522f00f556e73044315fa4585ec3270f1808a4b186c936e612cab0b565ff1e00"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "0.7.6"
+=======
+    version: "0.7.4"
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   typed_data:
     dependency: transitive
     description:
@@ -337,10 +358,17 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
+<<<<<<< HEAD
       sha256: d354a7ec6931e6047785f4db12a1f61ec3d43b207fc0790f863818543f8ff0dc
       url: "https://pub.dev"
     source: hosted
     version: "1.1.19"
+=======
+      sha256: ca81fdfaf62a5ab45d7296614aea108d2c7d0efca8393e96174bf4d51e6725b0
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.18"
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   vector_math:
     dependency: transitive
     description:
@@ -356,7 +384,11 @@ packages:
       sha256: "45caa6c5917fa127b5dbcfbd1fa60b14e583afdc08bfc96dda38886ca252eb60"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "15.0.2"
+=======
+    version: "15.0.0"
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
   web:
     dependency: transitive
     description:
@@ -369,6 +401,7 @@ packages:
     dependency: transitive
     description:
       name: xml
+<<<<<<< HEAD
       sha256: "971043b3a0d3da28727e40ed3e0b5d18b742fa5a68665cca88e74b7876d5e025"
       url: "https://pub.dev"
     source: hosted
@@ -376,3 +409,12 @@ packages:
 sdks:
   dart: ">=3.8.1 <4.0.0"
   flutter: ">=3.29.0"
+=======
+      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.5.0"
+sdks:
+  dart: ">=3.8.1 <4.0.0"
+  flutter: ">=3.27.0"
+>>>>>>> dda8d96e577d2b9ab33ca7e8745f090f15b63939
