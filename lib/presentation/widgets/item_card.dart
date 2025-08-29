@@ -35,6 +35,7 @@ class ItemCard extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(17),
           child: Stack(
+            clipBehavior: Clip.none, 
             children: [
               // Background pattern
               Positioned.fill(
@@ -47,10 +48,8 @@ class ItemCard extends StatelessWidget {
                   horizontal: 12,
                   vertical: 10,
                 ),
-                // padding: const EdgeInsets.all(7),
                 child: Row(
                   children: [
-                    // Left side - Text content
                     Expanded(
                       flex: 3,
                       child: Column(
@@ -78,48 +77,50 @@ class ItemCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       flex: 2,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Hero(
-                          tag: "${pokemon.id}",
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.white.withOpacity(0.2),
-                                  blurRadius: 20,
-                                  spreadRadius: 5,
-                                ),
-                              ],
-                            ),
-                            child: Image.network(
-                              pokemon.sprites.frontShiny,
-                              fit: BoxFit.cover,
-                              height: 350,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  height: 220,
-                                  width: 180,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.1),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: const Icon(
-                                    Icons.catching_pokemon,
-                                    color: Colors.white54,
-                                    size: 70,
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                      child: SizedBox(),
+                    ), 
                   ],
+                ),
+              ),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: Hero(
+                  tag: "${pokemon.id}",
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(0.2),
+                          blurRadius: 20,
+                          spreadRadius: 5,
+                        ),
+                      ],
+                    ),
+                    child: Image.network(
+                      pokemon.sprites.frontShiny,
+                      fit: BoxFit.cover,
+                      height: 100,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          height: 220,
+                          width: 180,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.1),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.catching_pokemon,
+                            color: Colors.white54,
+                            size: 70,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             ],
