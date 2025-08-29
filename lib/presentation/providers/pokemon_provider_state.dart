@@ -17,13 +17,16 @@ typedef PokemonCallback =
 class PokemonNotifier extends StateNotifier<List<Pokemon>> {
   final PokemonCallback fetchPokemons;
   PokemonNotifier({required this.fetchPokemons}) : super([]);
-
+  int limit = 20;
+  int offset = 0;
   bool isLoading = false;
 
-  Future<void> fetchPokemonsMethod() async {
+  Future<List<Pokemon>> fetchPokemonsMethod() async {
     isLoading = true;
-    final pokemons = await fetchPokemons();
+    final pokemons = await fetchPokemons(limit: limit, offset: limit * offset);
+    offset++;
     state = [...state, ...pokemons];
     isLoading = false;
+    return pokemons;
   }
 }

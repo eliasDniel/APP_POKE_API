@@ -32,12 +32,11 @@ class DetailsScreen extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      // each product have a color
-      backgroundColor: getTypeColor(
-        pokemon.types[0].type.name,
-      ).withOpacity(0.8),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: getTypeColor(
+          pokemon.types[0].type.name,
+        ).withOpacity(0.8),
         elevation: 0,
         leading: IconButton(
           icon: SvgPicture.asset(
@@ -55,76 +54,80 @@ class DetailsScreen extends StatelessWidget {
           ),
           const SizedBox(width: kDefaultPaddin / 2),
         ],
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: size.height,
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: size.height * 0.3),
-                    padding: EdgeInsets.only(
-                      top: size.height * 0.12,
-                      left: kDefaultPaddin,
-                      right: kDefaultPaddin,
-                    ),
-                    // height: 500,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
+      body: Container(
+        color: getTypeColor(
+          pokemon.types[0].type.name,
+        ).withOpacity(0.8),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: size.height,
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(top: size.height * 0.3),
+                      padding: EdgeInsets.only(
+                        top: size.height * 0.12,
+                        left: kDefaultPaddin,
+                        right: kDefaultPaddin,
+                      ),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  pokemon.name.toUpperCase(),
+                                  style: Theme.of(context).textTheme.titleLarge!
+                                      .copyWith(
+                                        color: const Color.fromARGB(255, 0, 0, 0),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                const SizedBox(height: kDefaultPaddin),
+                                Text(
+                                  'N°${pokemon.id}',
+                                  style: Theme.of(context).textTheme.titleLarge!
+                                      .copyWith(
+                                        color: const Color.fromARGB(138, 0, 0, 0),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                const SizedBox(height: kDefaultPaddin),
+                                ColorAndSize(pokemon: pokemon),
+                                SizedBox(height: kDefaultPaddin / 2),
+                                Text(
+                                  'Este Pokémon es conocido por su gran energía y habilidades únicas. Es muy popular entre los entrenadores por su apariencia y destreza en batalla.',
+                                  style: Theme.of(context).textTheme.bodyMedium!
+                                      .copyWith(color: Colors.black87),
+                                ),
+                                SizedBox(height: kDefaultPaddin / 2),
+                                PokemonDescription(pokemon: pokemon),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                pokemon.name.toUpperCase(),
-                                style: Theme.of(context).textTheme.titleLarge!
-                                    .copyWith(
-                                      color: const Color.fromARGB(255, 0, 0, 0),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                              
-                              const SizedBox(height: kDefaultPaddin),
-                              Text(
-                                'N°${pokemon.id}',
-                                style: Theme.of(context).textTheme.titleLarge!
-                                    .copyWith(
-                                      color: const Color.fromARGB(138, 0, 0, 0),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                              const SizedBox(height: kDefaultPaddin),
-                              ColorAndSize(pokemon: pokemon),
-                              SizedBox(height: kDefaultPaddin / 2),
-                              Text(
-                                'Este Pokémon es conocido por su gran energía y habilidades únicas. Es muy popular entre los entrenadores por su apariencia y destreza en batalla.',
-                                style: Theme.of(context).textTheme.bodyMedium!
-                                    .copyWith(color: Colors.black87),
-                              ),
-                              SizedBox(height: kDefaultPaddin / 2),
-                              PokemonDescription(pokemon: pokemon),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ProductTitleWithImage(pokemon: pokemon),
-                ],
+                    ProductTitleWithImage(pokemon: pokemon),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,12 +1,15 @@
+import 'dart:math';
+
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_poke_api/domain/domain.dart';
+import 'package:flutter_poke_api/presentation/widgets/pokemon_masonry.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/config.dart';
 import '../providers/providers.dart';
-import '../widgets/item_card.dart';
-import 'pokemon_screen.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -17,11 +20,27 @@ class HomeView extends ConsumerStatefulWidget {
 
 class HomeViewState extends ConsumerState<HomeView>
     with AutomaticKeepAliveClientMixin {
+  bool isLoading = false;
+  bool isLastPage = false;
+
   @override
   void initState() {
-    ref.read(pokemonProvider.notifier).fetchPokemonsMethod();
     super.initState();
+    loadNextPage();
   }
+
+  void loadNextPage() async {
+    if (isLoading || isLastPage) return;
+    isLoading = true;
+    final pokemons = await ref
+        .read(pokemonProvider.notifier)
+        .fetchPokemonsMethod();
+    isLoading = false;
+    if (pokemons.isEmpty) {
+      isLastPage = true;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,39 +51,9 @@ class HomeViewState extends ConsumerState<HomeView>
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
     return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            CustomSliverAppbar(),
-            _CategoriasCustom(),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: kDefaultPaddin - 10,
-              ),
-              sliver: SliverGrid(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => ItemCard(
-                    pokemon: pokemons[index],
-                    press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            DetailsScreen(pokemon: pokemons[index]),
-                      ),
-                    ),
-                  ),
-                  childCount: pokemons.length,
-                ),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 15,
-                  childAspectRatio: 1.4,
-                ),
-              ),
-            ),
-          ],
-        ),
+      body: PokemonMasonry(
+        pokemones: pokemons,
+        loadNextPage: loadNextPage,
       ),
     );
   }
@@ -255,6 +244,32 @@ class CustomSliverAppbar extends StatelessWidget {
               ),
             ),
             style: TextStyle(color: Colors.grey.shade600),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MoviesPosterLink extends StatelessWidget {
+  final Pokemon pokemon;
+  const MoviesPosterLink({super.key, required this.pokemon});
+
+  @override
+  Widget build(BuildContext context) {
+    final random = Random();
+    return FadeInUp(
+      from: random.nextInt(100) + 80,
+      delay: Duration(milliseconds: random.nextInt(450) + 0),
+      child: GestureDetector(
+        onTap: () => context.push('/home/2/movie/${pokemon.id}'),
+        child: ClipRRect(
+          borderRadius: BorderRadiusGeometry.circular(20),
+          child: FadeInImage(
+            height: 180,
+            fit: BoxFit.cover,
+            placeholder: AssetImage('assets/loaders/bottle-loader.gif'),
+            image: NetworkImage(pokemon.sprites.frontShiny),
           ),
         ),
       ),

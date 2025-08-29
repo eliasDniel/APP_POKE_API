@@ -1,5 +1,3 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:flutter_poke_api/infrastructure/mappers/pokemon_mappers.dart';
 
@@ -19,15 +17,16 @@ class PokemonDatasourceImpl implements PokemonDataSource {
       'pokemon',
       queryParameters: {'limit': limit, 'offset': offset},
     );
-    final pokemonsResponse = [];
-
-    for (var i in response.data['results']) {
-      final pokemon = await dio.get(i['url']);
-      final pokemonResponse = PokemonResult.fromJson(pokemon.data);
-      pokemonsResponse.add(pokemonResponse);
-    }
-    final pokemones = pokemonsResponse.map((e) => PokemonMapper.toEntity(e)).toList();
-
+    final futures = (response.data['results'] as List).asMap().entries.map((
+      entry,
+    ) {
+      final index = entry.key + 1 + offset; // id del pokemon
+      return dio.get('pokemon/$index');
+    }).toList();
+    final responses = await Future.wait(futures);
+    final pokemones = responses
+        .map((res) => PokemonMapper.toEntity(PokemonResult.fromJson(res.data)))
+        .toList();
     return pokemones;
   }
 
@@ -40,6 +39,12 @@ class PokemonDatasourceImpl implements PokemonDataSource {
   @override
   Future<List<Pokemon>> getPokemonsByType(String type) {
     // TODO: implement getPokemonsByType
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Pokemon> getAllCategories() {
+    // TODO: implement getAllCategories
     throw UnimplementedError();
   }
 }
