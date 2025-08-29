@@ -53,7 +53,7 @@ final _navBarItems = [
   ),
   SalomonBottomBarItem(
     icon: const Icon(Icons.star), 
-    title: const Text("Destacados"),
+    title: const Text("Regiones"),
     selectedColor: Colors.amber,
   ),
   SalomonBottomBarItem(

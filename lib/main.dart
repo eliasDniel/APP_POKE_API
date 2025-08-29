@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_poke_api/config/router/app_router.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+
+
 
 void main() {
   runApp(ProviderScope(child: const MainApp()));
@@ -12,7 +15,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
     );

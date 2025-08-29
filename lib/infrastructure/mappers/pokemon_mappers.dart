@@ -1,5 +1,3 @@
-
-
 import '../../domain/domain.dart';
 import '../infrastructure.dart';
 
@@ -35,17 +33,17 @@ class PokemonMapper {
     slot: ability.slot,
   );
 
-
-static Stat toEntityStat(StatResult stat) => Stat(
+  static Stat toEntityStat(StatResult stat) => Stat(
     baseStat: stat.baseStat,
     effort: stat.effort,
     stat: toEntitySpecies(stat.stat),
   );
 
-  static PastAbility toEntityPastAbility(PastAbilityResult passAbility) => PastAbility(
-    abilities: passAbility.abilities.map(toEntityAbility).toList(),
-    generation: toEntitySpecies(passAbility.generation)
-  );
+  static PastAbility toEntityPastAbility(PastAbilityResult passAbility) =>
+      PastAbility(
+        abilities: passAbility.abilities.map(toEntityAbility).toList(),
+        generation: toEntitySpecies(passAbility.generation),
+      );
 
   static Cries toEntityCries(CriesResult cries) =>
       Cries(latest: cries.latest, legacy: cries.legacy);
@@ -80,8 +78,6 @@ static Stat toEntityStat(StatResult stat) => Stat(
     frontDefault: sprites.frontDefault,
     frontShiny: sprites.frontShiny,
   );
-  static Type toEntityType(TypeResult type) => Type(
-    slot: type.slot,
-    type: toEntitySpecies(type.type),
-  );
+  static Type toEntityType(TypeResult type) =>
+      Type(slot: type.slot, type: toEntitySpecies(type.type));
 }

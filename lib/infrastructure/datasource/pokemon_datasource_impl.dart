@@ -1,6 +1,7 @@
 
 
 import 'package:dio/dio.dart';
+import 'package:flutter_poke_api/infrastructure/mappers/pokemon_mappers.dart';
 
 import '../../domain/domain.dart';
 import '../infrastructure.dart';

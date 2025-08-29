@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_poke_api/presentation/screens/region_view.dart';
 
 import '../widgets/custom_bottom_navigator.dart';
 import 'home_view.dart';
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   final viewsPages = const <Widget>[
     HomeView(),
-    Placeholder(),
+    RegionView(),
     Placeholder(),
     Placeholder(),
 

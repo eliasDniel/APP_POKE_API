@@ -12,10 +12,10 @@ class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  HomeScreenState createState() => HomeScreenState();
+  HomeViewState createState() => HomeViewState();
 }
 
-class HomeScreenState extends ConsumerState<HomeView> with AutomaticKeepAliveClientMixin {
+class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     ref.read(pokemonProvider.notifier).fetchPokemonsMethod();
@@ -44,6 +44,11 @@ class HomeScreenState extends ConsumerState<HomeView> with AutomaticKeepAliveCli
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Image.asset(
+                      'assets/icons/icons_pokem.png',
+                      height: 40,
+                      
+                    ),
                     Text(
                       "POKEMONS",
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(

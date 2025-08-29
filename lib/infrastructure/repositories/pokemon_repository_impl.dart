@@ -1,8 +1,9 @@
 
 
 
-
-import '../../domain/domain.dart';
+import '../../domain/entities/pokemon.dart';
+import '../../domain/repositories/pokemon_repository.dart';
+import '../../domain/datasources/pokemon_datasource.dart';
 
 class PokemonRepositoryImpl implements PokemonRepository {
   final PokemonDataSource dataSource;
