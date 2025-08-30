@@ -33,6 +33,7 @@ class PokemonMapper {
     slot: ability.slot,
   );
 
+
   static Stat toEntityStat(StatResult stat) => Stat(
     baseStat: stat.baseStat,
     effort: stat.effort,

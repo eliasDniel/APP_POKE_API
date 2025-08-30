@@ -1,10 +1,7 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:flutter_poke_api/infrastructure/mappers/pokemon_mappers.dart';
-
 import '../../domain/domain.dart';
-import '../infrastructure.dart';
+import '../../infrastructure/infrastructure.dart';
 
 class PokemonDatasourceImpl implements PokemonDataSource {
   final dio = Dio(
@@ -14,7 +11,10 @@ class PokemonDatasourceImpl implements PokemonDataSource {
     ),
   );
   @override
-  Future<List<Pokemon>> getAllPokemons({int limit = 10, int offset = 0}) async {
+  Future<List<Pokemon>> getAllPokemons({
+    int limit = 10,
+    int offset = 20,
+  }) async {
     final response = await dio.get(
       'pokemon',
       queryParameters: {'limit': limit, 'offset': offset},
@@ -25,8 +25,11 @@ class PokemonDatasourceImpl implements PokemonDataSource {
       final pokemon = await dio.get(i['url']);
       final pokemonResponse = PokemonResult.fromJson(pokemon.data);
       pokemonsResponse.add(pokemonResponse);
+      print(pokemon.data);
     }
-    final pokemones = pokemonsResponse.map((e) => PokemonMapper.toEntity(e)).toList();
+    final pokemones = pokemonsResponse
+        .map((e) => PokemonMapper.toEntity(e))
+        .toList();
 
     return pokemones;
   }
@@ -40,6 +43,11 @@ class PokemonDatasourceImpl implements PokemonDataSource {
   @override
   Future<List<Pokemon>> getPokemonsByType(String type) {
     // TODO: implement getPokemonsByType
+    throw UnimplementedError();
+  }
+
+  Future<List<Pokemon>> getPokemonsByName(String name) {
+    // TODO: implement getPokemonsByName
     throw UnimplementedError();
   }
 }

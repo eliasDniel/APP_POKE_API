@@ -1,6 +1,3 @@
-
-
-
 class Pokemon {
   final List<Ability> abilities;
   final int baseExperience;
@@ -148,6 +145,7 @@ class Other {
 }
 
 class Versions {
+  get generationI => null;
   // Puedes definir solo la generación que necesites
 }
 
@@ -179,7 +177,12 @@ class Home {
   final String frontShiny;
   final dynamic frontShinyFemale;
 
-  Home({required this.frontDefault, this.frontFemale, required this.frontShiny, this.frontShinyFemale});
+  Home({
+    required this.frontDefault,
+    this.frontFemale,
+    required this.frontShiny,
+    this.frontShinyFemale,
+  });
 }
 
 class OfficialArtwork {

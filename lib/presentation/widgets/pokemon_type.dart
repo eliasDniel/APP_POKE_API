@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_poke_api/domain/domain.dart';
 
-import '../../config/config.dart';
+// import '../../config/config.dart';
 
 class ColorAndSize extends StatelessWidget {
   const ColorAndSize({super.key, required this.pokemon});
@@ -98,7 +98,7 @@ class ColorAndSize extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Wrap(
-                spacing: 8,
+                spacing: 12,
                 children: pokemon.types.map((typeInfo) {
                   final typeName = typeInfo.type.name;
                   return Chip(
@@ -124,49 +124,33 @@ class ColorAndSize extends StatelessWidget {
             ],
           ),
         ),
-        // Expanded(
-        //   child: RichText(
-        //     text: TextSpan(
-        //       style: const TextStyle(color: kTextColor),
-        //       children: [
-        //         const TextSpan(text: "Tamaño\n"),
-        //         TextSpan(
-        //           text: "${pokemon.height} m",
-        //           style: Theme.of(
-        //             context,
-        //           ).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
 }
 
-class ColorDot extends StatelessWidget {
-  const ColorDot({super.key, required this.color, required this.isSelected});
+// class ColorDot extends StatelessWidget {
+//   const ColorDot({super.key, required this.color, required this.isSelected});
 
-  final Color color;
-  final bool isSelected;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(
-        top: kDefaultPaddin / 4,
-        right: kDefaultPaddin / 2,
-      ),
-      padding: const EdgeInsets.all(2.5),
-      height: 24,
-      width: 24,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(color: isSelected ? color : Colors.transparent),
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      ),
-    );
-  }
-}
+//   final Color color;
+//   final bool isSelected;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       margin: const EdgeInsets.only(
+//         top: kDefaultPaddin / 4,
+//         right: kDefaultPaddin / 2,
+//       ),
+//       padding: const EdgeInsets.all(4),
+//       height: 24,
+//       width: 24,
+//       decoration: BoxDecoration(
+//         shape: BoxShape.circle,
+//         border: Border.all(color: isSelected ? color : Colors.transparent),
+//       ),
+//       child: DecoratedBox(
+//         decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+//       ),
+//     );
+//   }
+// }

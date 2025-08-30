@@ -4,7 +4,8 @@ import 'package:flutter_poke_api/domain/entities/pokemon.dart';
 import '../../config/config.dart';
 
 class ProductTitleWithImage extends StatelessWidget {
-  const ProductTitleWithImage({super.key, required this.pokemon});
+  final String? customImageUrl;
+  const ProductTitleWithImage({super.key, required this.pokemon, this.customImageUrl});
 
   final Pokemon pokemon;
   @override
@@ -20,8 +21,10 @@ class ProductTitleWithImage extends StatelessWidget {
                 child: Hero(
                   tag: "${pokemon.id}",
                   child: Image.network(
-                    pokemon.sprites.frontShiny,
+                    customImageUrl ?? pokemon.sprites.frontDefault,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Center(child: Icon(Icons.error)),
                   ),
                 ),
               ),

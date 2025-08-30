@@ -5,13 +5,14 @@ import '../../domain/entities/pokemon.dart';
 import '../../domain/repositories/pokemon_repository.dart';
 import '../../domain/datasources/pokemon_datasource.dart';
 
+
 class PokemonRepositoryImpl implements PokemonRepository {
   final PokemonDataSource dataSource;
 
   PokemonRepositoryImpl(this.dataSource);
 
   @override
-  Future<List<Pokemon>> getAllPokemons({int limit = 10, int offset = 0}) {
+  Future<List<Pokemon>> getAllPokemons({int limit = 10, int offset = 20}) {
     return dataSource.getAllPokemons(limit: limit, offset: offset);
   }
 
@@ -24,4 +25,5 @@ class PokemonRepositoryImpl implements PokemonRepository {
   Future<List<Pokemon>> getPokemonsByType(String type) {
     return dataSource.getPokemonsByType(type);
   }
+ 
 }

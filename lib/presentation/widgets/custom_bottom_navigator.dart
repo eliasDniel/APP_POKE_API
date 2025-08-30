@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -47,24 +45,28 @@ class _CustomBottomNavigatorState extends State<CustomBottomNavigator> {
 
 final _navBarItems = [
   SalomonBottomBarItem(
-    icon: const Icon(Icons.catching_pokemon), 
+    icon: const Icon(Icons.catching_pokemon),
     title: const Text("Pokémon"),
     selectedColor: Colors.redAccent,
   ),
   SalomonBottomBarItem(
-    icon: const Icon(Icons.star), 
-    title: const Text("Regiones"),
-    selectedColor: Colors.amber,
+    icon: Image.network(
+      'https://img.icons8.com/?size=256w&id=62077&format=png',
+      height: 24,
+      width: 24,
+       
+    ),
+    title: const Text("Pokémon"),
+    selectedColor: Colors.redAccent,
   ),
   SalomonBottomBarItem(
-    icon: const Icon(Icons.favorite), 
+    icon: const Icon(Icons.favorite),
     title: const Text("Favoritos"),
     selectedColor: Colors.pink,
   ),
   SalomonBottomBarItem(
-    icon: const Icon(Icons.person), 
+    icon: const Icon(Icons.person),
     title: const Text("Entrenador"),
     selectedColor: Colors.blue,
   ),
 ];
-
