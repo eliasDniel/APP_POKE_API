@@ -46,6 +46,26 @@ class HomeViewState extends ConsumerState<HomeView>
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0,
+        title: Text(
+          'Pokedex',
+          style: GoogleFonts.poppins(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.catching_pokemon_rounded,
+                color: Colors.black),
+            onPressed: () {},
+          ),
+        ],
+      ),
       body: PokemonMasonry(
         pokemones: pokemons,
         loadNextPage: loadNextPage,
