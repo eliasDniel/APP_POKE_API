@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_poke_api/domain/domain.dart';
-import 'package:flutter_poke_api/presentation/screens/home_view.dart';
+import 'package:flutter_poke_api/presentation/widgets/item_card.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class PokemonMasonry extends StatefulWidget {
@@ -38,7 +38,7 @@ class _PokemonMasonryState extends State<PokemonMasonry> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 10),
+      padding: EdgeInsetsGeometry.symmetric(horizontal: 5),
       child: MasonryGridView.count(
         controller: _controller,
         crossAxisSpacing: 10,
@@ -52,12 +52,12 @@ class _PokemonMasonryState extends State<PokemonMasonry> {
               child: Column(
                 children: [
                   SizedBox(height: 30),
-                  MoviesPosterLink(pokemon: widget.pokemones[index]),
+                  ItemCard(pokemon: widget.pokemones[index], press: () {}),
                 ],
               ),
             );
           }
-          return MoviesPosterLink(pokemon: widget.pokemones[index]);
+          return ItemCard(pokemon: widget.pokemones[index], press: () {});
         },
       ),
     );

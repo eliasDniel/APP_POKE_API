@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_poke_api/domain/domain.dart';
 
 import '../../config/config.dart';
+import '../utils/pokemon_type_utils.dart';
 
 class ColorAndSize extends StatelessWidget {
   const ColorAndSize({super.key, required this.pokemon});
@@ -9,46 +10,8 @@ class ColorAndSize extends StatelessWidget {
   final Pokemon pokemon;
   @override
   Widget build(BuildContext context) {
-    Color getTypeColor(String type) {
-      switch (type.toLowerCase()) {
-        case 'grass':
-          return const Color(0xFF4CAF50);
-        case 'fire':
-          return const Color(0xFFFFA756);
-        case 'water':
-          return const Color(0xFF58ABF6);
-        case 'bug':
-          return const Color(0xFF8BD674);
-        case 'flying':
-          return const Color(0xFF83A2E3);
-        case 'poison':
-          return const Color(0xFF9F6E97);
-        case 'electric':
-          return const Color(0xFFF2CB55);
-        case 'ground':
-          return const Color(0xFFF78551);
-        case 'fairy':
-          return const Color(0xFFEB89EB);
-        case 'fighting':
-          return const Color(0xFFEB4971);
-        case 'psychic':
-          return const Color(0xFFFF6568);
-        case 'rock':
-          return const Color(0xFFD4C294);
-        case 'ghost':
-          return const Color(0xFF8571BE);
-        case 'ice':
-          return const Color(0xFF91D8DF);
-        case 'dragon':
-          return const Color(0xFF7383B9);
-        case 'dark':
-          return const Color(0xFF6F6E78);
-        case 'steel':
-          return const Color(0xFF4C91B2);
-        default:
-          return const Color(0xFF4CAF50);
-      }
-    }
+    // La función getTypeColor ha sido eliminada y ahora se importa desde utils/pokemon_type_utils.dart
+    // Asegúrate de importar: import '../utils/pokemon_type_utils.dart';
 
     IconData getTypeIcon(String type) {
       switch (type.toLowerCase()) {

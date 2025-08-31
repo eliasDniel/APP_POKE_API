@@ -1,11 +1,6 @@
-import 'dart:math';
-
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_poke_api/domain/domain.dart';
 import 'package:flutter_poke_api/presentation/widgets/pokemon_masonry.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/config.dart';
@@ -251,28 +246,3 @@ class CustomSliverAppbar extends StatelessWidget {
   }
 }
 
-class MoviesPosterLink extends StatelessWidget {
-  final Pokemon pokemon;
-  const MoviesPosterLink({super.key, required this.pokemon});
-
-  @override
-  Widget build(BuildContext context) {
-    final random = Random();
-    return FadeInUp(
-      from: random.nextInt(100) + 80,
-      delay: Duration(milliseconds: random.nextInt(450) + 0),
-      child: GestureDetector(
-        onTap: () => context.push('/home/2/movie/${pokemon.id}'),
-        child: ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(20),
-          child: FadeInImage(
-            height: 180,
-            fit: BoxFit.cover,
-            placeholder: AssetImage('assets/loaders/bottle-loader.gif'),
-            image: NetworkImage(pokemon.sprites.frontShiny),
-          ),
-        ),
-      ),
-    );
-  }
-}
